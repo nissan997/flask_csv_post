@@ -13,12 +13,14 @@ def index():
         nothi = str(package.filename)
         name = nothi.split('.')[0]
         reader = csv.reader(package)
+        sniffer = csv.Sniffer()
         for row in reader:
             nis=json.dumps(row)
             nothi = nothi +"\n"+ nis
         with open(name+'.json','w') as outfile:
             json.dump(nothi,outfile)
-    return nothi + "\n" + "Succefully Uploaded"
+        dialect = sniffer.sniff(nothi)
+    return nothi + "\n" + "Succefully Uploaded" + "\n"+ "Delimiter: "+ str(dialect.delimiter)
 
 
 if __name__=='__main__':
