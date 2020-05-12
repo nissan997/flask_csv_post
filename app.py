@@ -11,16 +11,18 @@ def index():
     if request.method == 'POST':
         package = request.files["package"]
         nothi = str(package.filename)
-        name = nothi.split('.')[0]
-        reader = csv.reader(package)
+        name = nothi.split('.')[0]  
         sniffer = csv.Sniffer()
-        for row in reader:
-            nis=json.dumps(row)
-            nothi = nothi +"\n"+ nis
+        fstring = package.read()
+        dialect = sniffer.sniff(fstring)
+        # reader = csv.reader(package)
+        # for row in reader:
+        #     nis=json.dumps(row)
+        #     nothi = nothi +"\n"+ nis
+        csv_dicts = [{k: v for k, v in row.items()} for row in csv.DictReader(fstring.splitlines(), skipinitialspace=True)]
         with open(name+'.json','w') as outfile:
-            json.dump(nothi,outfile)
-        dialect = sniffer.sniff(nothi)
-    return nothi + "\n" + "Succefully Uploaded" + "\n"+ "Delimiter: "+ str(dialect.delimiter)
+            json.dump(csv_dicts,outfile)
+    return "Succefully Uploaded" + "\n"+ "Delimiter: "+ str(dialect.delimiter)
 
 
 if __name__=='__main__':

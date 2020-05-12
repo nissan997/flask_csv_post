@@ -1,1 +1,1 @@
-"friends.csv\n[\"id\", \"name\", \"salary\"]\n[\"1\", \"Nissan\", \"1M\"]\n[\"2\", \"Mahbub\", \"5M\"]\n[\"3\", \"Sayem\", \"1.2M\"]\n[\"3\", \"Rahim\", \"3M\"]\n[\"4\", \"Jak\", \"1.1M\"]\n[\"5\", \"Amran\", \"1.13M\"]"
+[{"salary": "1M", "id": "1", "name": "Nissan"}, {"salary": "5M", "id": "2", "name": "Mahbub"}, {"salary": "1.2M", "id": "3", "name": "Sayem"}, {"salary": "3M", "id": "3", "name": "Rahim"}, {"salary": "1.1M", "id": "4", "name": "Jak"}, {"salary": "1.13M", "id": "5", "name": "Amran"}]
